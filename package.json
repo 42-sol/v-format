@@ -1,6 +1,6 @@
 {
   "name": "@42sol/v-format",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue directive to help you format input text content automatically",
   "main": "dist/v-format.js",
   "module": "dist/v-format.esm.js",

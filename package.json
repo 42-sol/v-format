@@ -12,6 +12,10 @@
   "bugs": {
     "url": "https://github.com/42-sol/v-format/issues"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "build": "npm run bundle && npm run bundle:min",
     "bundle": "rollup -c build/rollup.conf.js",

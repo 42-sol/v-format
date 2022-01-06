@@ -1,5 +1,8 @@
-# Vue input format directive
+![npm](https://img.shields.io/npm/v/@42sol/v-format)
+[![Release](https://github.com/42-sol/v-format/actions/workflows/release.yml/badge.svg)](https://github.com/42-sol/v-format/actions/workflows/release.yml)
+[![Vue2](https://img.shields.io/badge/Vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
+# Vue input format directive
 > Tiny input format library for vue.js based on [cleave.js](https://github.com/nosir/cleave.js)
 
 ## Why?

@@ -11,6 +11,16 @@ to format input text.
 However, this isn't meant to replace any validation or mask library, you should still sanitize 
 and validate your data in backend.
 
+## Installation
+
+```shell
+npm i @42sol/v-format
+
+# or
+
+yarn add @42sol/v-format
+```
+
 ## Initialization
 
 ```javascript

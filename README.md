@@ -54,7 +54,7 @@ export default {
 <!-- OR -->
 <input type="text" v-model="value" v-format="variableWithOptions">
 <!-- OR -->
-<input type="text" v-model="value" v-format="numeral">
+<input type="text" v-model="value" v-format="'numeral'">
 
 <!-- OR -->
 <InputComponent v-model="value" v-format="{ selector: '.innerInput', creditCard: true }" />

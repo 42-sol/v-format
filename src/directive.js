@@ -38,7 +38,7 @@ const parseOptions = (value) => {
   return Object.assign(options, defaults);
 };
 
-const mounted = function(element, binding) {
+function mounted(element, binding) {
   const el = element;
   const options = parseOptions(binding.value);
 
@@ -49,9 +49,9 @@ const mounted = function(element, binding) {
   }
 
   el.$inputElement.cleave = new Cleave(el.$inputElement, options);
-};
+}
 
-const updated = function(el) {
+function updated(el) {
   if (!el.$inputElement) {
     return;
   }
@@ -61,16 +61,16 @@ const updated = function(el) {
   setTimeout(() => {
     el.$inputElement.dispatchEvent(event);
   }, 100);
-};
+}
 
-const unmounted = function(element) {
+function unmounted(element) {
   const el = element;
 
   if (el.$inputElement.cleave) {
     el.$inputElement.cleave.destroy();
     delete el.$inputElement.cleave;
   }
-};
+}
 
 export default {
   // Vue 2

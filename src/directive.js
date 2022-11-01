@@ -38,39 +38,48 @@ const parseOptions = (value) => {
   return Object.assign(options, defaults);
 };
 
-export default {
+const mounted = function(element, binding) {
+  const el = element;
+  const options = parseOptions(binding.value);
 
-  inserted(element, binding) {
-    const el = element;
-    const options = parseOptions(binding.value);
+  el.$inputElement = queryInputElementInside(el, options.selector);
 
-    el.$inputElement = queryInputElementInside(el, options.selector);
-
-    if (!el.$inputElement) {
-      throw new Error('Input element not found');
-    }
-
-    el.$inputElement.cleave = new Cleave(el.$inputElement, options);
-  },
-
-  update(el) {
-    if (!el.$inputElement) {
-      return;
-    }
-
-    const event = new Event('input', { bubbles: true });
-
-    setTimeout(() => {
-      el.$inputElement.dispatchEvent(event);
-    }, 100);
-  },
-
-  unbind(element) {
-    const el = element;
-
-    if (el.$inputElement.cleave) {
-      el.$inputElement.cleave.destroy();
-      delete el.$inputElement.cleave;
-    }
+  if (!el.$inputElement) {
+    throw new Error('Input element not found');
   }
+
+  el.$inputElement.cleave = new Cleave(el.$inputElement, options);
+};
+
+const updated = function(el) {
+  if (!el.$inputElement) {
+    return;
+  }
+
+  const event = new Event('input', { bubbles: true });
+
+  setTimeout(() => {
+    el.$inputElement.dispatchEvent(event);
+  }, 100);
+};
+
+const unmounted = function(element) {
+  const el = element;
+
+  if (el.$inputElement.cleave) {
+    el.$inputElement.cleave.destroy();
+    delete el.$inputElement.cleave;
+  }
+};
+
+export default {
+  // Vue 2
+  inserted: mounted,
+  update: updated,
+  unbind: unmounted,
+
+  // Vue 3
+  mounted,
+  updated,
+  unmounted
 };
